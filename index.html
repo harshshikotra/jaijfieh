@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bakers Bliss - Freshly Baked Delights</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.18.0/font/bootstrap-icons.css">
+
+<!-- font awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    <style>
+        /* Basic Styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Header Styles */
+        .navbar-brand {
+            font-size: 1.75rem;
+            font-weight: 600;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .nav-link {
+            font-size: 1.1rem;
+            margin-left: 15px;
+        }
+
+        /* Hero Section */
+        .jumbotron h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 3rem;
+            font-weight: bold;
+            color: #e65100; /* Example bakery color */
+        }
+
+        .jumbotron .btn-primary {
+            background-color: #fdd835; /* Example bakery color */
+            border-color: #fdd835;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .jumbotron .btn-primary:hover {
+            background-color: #fbc02d;
+            border-color: #fbc02d;
+        }
+
+        /* Product Teasers */
+        #featured-products .card {
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        #featured-products .card-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.25rem;
+            color: #e65100;
+        }
+
+        /* About Us Snippet */
+        #about-us-snippet h2 {
+            font-family: 'Poppins', sans-serif;
+            color: #4caf50; /* Example bakery color */
+        }
+
+        /* Contact Us Snippet */
+        #contact-us-snippet h2 {
+            font-family: 'Poppins', sans-serif;
+            color: #007bff;
+        }
+
+        #contact-us-snippet .btn-success {
+            background-color: #4caf50;
+            border-color: #4caf50;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        #contact-us-snippet .btn-success:hover {
+            background-color: #388e3c;
+            border-color: #388e3c;
+        }
+
+        /* Footer */
+        .bg-dark a {
+            color: #ccc;
+            text-decoration: none;
+        }
+
+        .bg-dark a:hover {
+            color: #fff;
+        }
+
+        /* Gallery Styles */
+        #gallery-section h2 {
+            font-family: 'Poppins', sans-serif;
+            color: #f44336; /* Example bakery color */
+        }
+
+        .gallery-item {
+            margin-bottom: 20px;
+            border: 1px solid #eee;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .gallery-item img {
+            width: 60%;
+            height: 80%;
+            display: flex;
+            justify-content: center;
+            align-itmes: center;
+        }
+        .gallery-item img:hover {
+           transform: scale(1.1); /* Enlarge image on hover */
+           transition: transform 0.3s ease; /* Smooth transition */
+        }
+
+        /* Products Section */
+        #products-section h2 {
+            font-family: 'Poppins', sans-serif;
+            color: #ff9800; /* Example bakery color */
+        }
+
+        #products-section .card {
+            border: 2px solid #ddd;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        #products-section .card-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.1rem;
+            color: #ff9800;
+        }
+
+        #products-section .btn-success {
+            background-color: #4caf50;
+            border-color: #4caf50;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        #products-section .btn-success:hover {
+            background-color: #388e3c;
+            border-color: #388e3c;
+        }
+         #products-section .card img {
+            height: 200px; /* Fixed height for product images */
+            width: 200px;
+            display: flex;
+            align-items: center;
+             
+        }
+
+        /* Contact Section */
+        #contact-section h2 {
+            font-family: 'Poppins', sans-serif;
+            color: #008080; /* Example bakery color */
+        }
+
+        #contact-form label {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        #contact-form .btn-primary {
+            background-color: #008080;
+            border-color: #008080;
+            color: #fff;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        #contact-form .btn-primary:hover {
+            background-color: #00695c;
+            border-color: #00695c;
+        }
+
+        /* Cart Section Styles */
+        #cart-section {
+            margin-top: 40px;
+        }
+
+        #cart-section h2 {
+            font-family: 'Poppins', sans-serif;
+            color: #28a745; /* Success color */
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        #cart-items {
+            list-style: none;
+            padding: 0;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+
+        .cart-item .item-name {
+            flex-grow: 1;
+            margin-right: 10px;
+        }
+
+        .cart-item .item-price {
+            margin-left: auto; /* Push price to the right */
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        .cart-item .remove-item {
+            background: none;
+            border: none;
+            color: #dc3545;
+            cursor: pointer;
+            margin-left: 10px;
+            padding: 0;
+            line-height: 1; /* Adjust line height to vertically center icon */
+        }
+        .cart-item .remove-item:hover {
+            text-decoration: underline;
+        }
+
+        .cart-item .quantity-controls {
+            display: flex;
+            align-items: center;
+            margin-left: 10px;
+        }
+
+        .cart-item .quantity-controls button {
+            background: none;
+            border: none;
+            color: #343a40;
+            cursor: pointer;
+            padding: 0 5px;
+            font-size: 1.2rem;
+            line-height: 1;
+        }
+
+        .cart-item .quantity-controls button:hover {
+            color: #007bff;
+        }
+
+        .cart-item .quantity-controls span {
+            margin: 0 5px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #343a40;
+        }
+
+        #cart-total {
+            margin-top: 20px;
+            font-weight: bold;
+            text-align: right;
+            font-size: 1.2rem;
+        }
+
+        .empty-cart {
+            text-align: center;
+            color: #6c757d;
+            padding: 20px;
+            border: 1px solid #eee;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        .checkout-btn {
+            margin-top: 20px;
+            text-align: right;
+        }
+        .checkout-btn button{
+             background-color: #28a745;
+            border-color: #28a745;
+            color: #fff;
+            font-weight: bold;
+        }
+        .checkout-btn button:hover{
+             background-color: #218838;
+            border-color: #218838;
+        }
+
+/* for desktop */
+      .whatsapp_float {
+          position: fixed;
+          width: 60px;
+          height: 60px;
+          bottom: 40px;
+          right: 40px;
+          background-color: #25d366;
+          color: #FFF;
+          border-radius: 50px;
+          text-align: center;
+          font-size: 30px;
+          box-shadow: 2px 2px 3px #999;
+          z-index: 100;
+      }
+
+      .whatsapp-icon {
+          margin-top: 16px;
+      }
+
+      /* for mobile */
+      @media screen and (max-width: 767px) {
+          .whatsapp-icon {
+              margin-top: 10px;
+          }
+
+          .whatsapp_float {
+              width: 40px;
+              height: 40px;
+              bottom: 20px;
+              right: 10px;
+              font-size: 22px;
+          }
+      }
+
+
+ /* Menu Button */
+.menubtn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+
+/* The container <div> - needed to position the menu content */
+.menu {
+  position: relative;
+  display: inline-block;
+}
+
+/* Menu Content (Hidden by Default) */
+.menu-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the menu */
+.menu-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of menu links on hover */
+.menu-content a:hover {background-color: #ddd;}
+
+/* Show the menu on hover */
+.menu:hover .menu-content {display: block;}
+
+/* Change the background color of the menu button when the menu content is shown */
+.menu:hover .dropbtn {background-color: #3e8e41;} 
+    </style>
+</head>
+<body>
+
+    <header class="bg-light p-3 fixed-top">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-3">
+                    <a href="#" class="navbar-brand"> <img src="./logo.jpg" alt="" width="70"> Bakers Bliss</a>
+                </div>
+                <div class="col-md-9">
+                    <nav class="nav justify-content-end">
+                    
+                     <div class="menu">
+                             <button class="menubtn">Menu</button>
+
+      <div class="menu-content">
+        <a href="#home">Home</a>
+        <a href="#about">About Us</a>
+        <a href="#products-section">Products</a>
+        <a href="#gallery-section">Gallery</a>
+        <a href="#contaxt-section">Contact</a>
+        <a href="#cart-section"><i class="bi bi-cart-fill"></i> Cart <span class="badge badge-primary cart-badge">0</span></a> 
+   </div>
+  </div> 
+                   
+                            
+
+                        </a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mt-5 pt-3">
+        <section id="home" class="jumbotron bg-white text-center">
+            <h1 class="display-4">Welcome to Bakers Bliss</h1>
+            <p class="lead">Indulge in our freshly baked treats, made with love and delivered to your doorstep in Surat.</p>
+            <p><a class="btn btn-primary btn-lg" href="#featured-products" role="button">See Our Treats</a></p>
+        </section>
+        <section id="featured-products" class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="./cake1.jpeg" class="card-img-top" alt="Cake" width="150" height="300">
+                    <div class="card-body">
+                        <h5 class="card-title">Delicious Cakes</h5>
+                        <p class="card-text">Our signature cakes, perfect for any celebration.</p>
+                        <a href="#products-section" class="btn btn-outline-primary btn-sm">View More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="./cookies.jpeg" class="card-img-top" alt="Cookies" height="300">
+                    <div class="card-body">
+                        <h5 class="card-title">Scrumptious Cookies</h5>
+                        <p class="card-text">A delightful assortment of freshly baked cookies.</p>
+                        <a href="#products-section" class="btn btn-outline-primary btn-sm">View More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="./bread.jpeg" class="card-img-top" alt="Breads">
+                    <div class="card-body">
+                        <h5 class="card-title">Freshly Baked Breads</h5>
+                        <p class="card-text">Enjoy our variety of artisanal breads, baked daily.</p>
+                        <a href="#products-section" class="btn btn-outline-primary btn-sm">View More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery-section" class="mt-5">
+            <h2>Our Gallery</h2>
+            <div class="row">
+                <div class="col-md-4 gallery-item">
+                    <img src="./pastry.jpeg" alt="Pastry 1" width="200" height="100">
+                </div>
+                <div class="col-md-4 gallery-item">
+                    <img src="./Untitledd.jpeg" alt="Pastry 2">
+                </div>
+                <div class="col-md-4 gallery-item">
+                    <img src="./Untitleddd.jpeg" alt="Pastry 3">
+                </div>
+                <div class="col-md-4 gallery-item">
+                    <img src="./cake.jpeg" alt="Cake Image 1">
+                </div>
+                <div class="col-md-4 gallery-item">
+                    <img src="./cookie.jpeg" alt="Cookie Image 1">
+                </div>
+                <div class="col-md-4 gallery-item">
+                    <img src="./breads.jpeg" alt="Bread Image 1">
+                </div>
+            </div>
+        </section>
+
+        <section id="products-section" class="mt-5">
+            <h2>Our Products</h2>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="card">
+                        <img src="./chocolate cake.jpeg" class="card-img-top" alt="Chocolate Cake">
+                        <div class="card-body">
+                            <h5 class="card-title">Chocolate Cake</h5>
+                            <p class="card-text">Rich and decadent chocolate cake, perfect for any celebration.</p>
+                            <p class="card-text"><small class="text-muted">Price: ₹500</small></p>
+                            <button class="btn btn-success btn-sm add-to-cart" data-id="1" data-name="Chocolate Cake" data-price="500">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="card">
+                        <img src="./vanilla cake.jpeg" class="card-img-top" alt="Vanilla Cake">
+                        <div class="card-body">
+                            <h5 class="card-title">Vanilla Cake</h5>
+                            <p class="card-text">Classic vanilla cake, light and fluffy.</p>
+                            <p class="card-text"><small class="text-muted">Price: ₹400</small></p>
+                            <button class="btn btn-success btn-sm add-to-cart" data-id="2" data-name="Vanilla Cake" data-price="400">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="card">
+                        <img src="./chocolate chip cookie.jpeg" class="card-img-top" alt="Chocolate Chip Cookies">
+                        <div class="card-body">
+                            <h5 class="card-title">Chocolate Chip Cookies</h5>
+                            <p class="card-text">Classic chocolate chip cookies, warm and gooey.</p>
+                            <p class="card-text"><small class="text-muted">Price: ₹100/dozen</small></p>
+                            <button class="btn btn-success btn-sm add-to-cart" data-id="3" data-name="Chocolate Chip Cookies" data-price="100">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="card">
+                        <img src="./cheescake.jpeg" class="card-img-top" alt="Sourdough Bread">
+                        <div class="card-body">
+                            <h5 class="card-title">Cheesecake</h5>
+                            <p class="card-text">Cheesy Cake, perfect for any meal.</p>
+                            <p class="card-text"><small class="text-muted">Price: ₹250/kg</small></p>
+                            <button class="btn btn-success btn-sm add-to-cart" data-id="4" data-name="Cheesecake" data-price="250">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+ </section>
+
+        <section id="cart-section" class="mt-5">
+            <h2>Your Cart</h2>
+            <ul id="cart-items" class="list-group">
+                <li class="empty-cart">Your cart is empty</li>
+            </ul>
+            <div id="cart-total">
+                <strong>Total: ₹<span id="total-price">0.00</span></strong>
+            </div>
+            <div class="checkout-btn">
+ <a
+        href="https://wa.me/919372313944"
+        
+       target="_blank"
+        rel="noopener noreferrer"
+      >
+                 <button class="btn btn-success ">Checkout</button>
+    
+         </a>
+            </div>
+        </section>
+ </section>
+
+        <section id="about" class="row mt-4">
+            <div class="col-md-6">
+                <img src="./owner.jpg" alt="Baking Process" class="img-fluid rounded mb-3">
+            </div>
+            <div class="col-md-6">
+                <h2>Our Story</h2>
+                <p>At Bakers Bliss, we believe in the simple joy of freshly baked goods. We are committed to using high-quality ingredients and time-tested recipes to create treats that not only taste delicious but also bring a smile to your face. Our home-based approach allows us to pour extra care and attention into every batch.</p>
+                <h3>Meet the Baker</h3>
+                <p>Hi, I'm Mohnish, the baker behind Bakers Bliss. Baking has been my passion for years, and I'm excited to share my creations with the community of Surat. From classic cakes to unique cookies and comforting breads, each item is baked with love and a dedication to quality.</p>
+                <p>I started Bakers Bliss because I wanted to bring the warmth and flavor of homemade baking directly to your doorstep. Your support means the world to me!</p>
+            </div>
+        </section>
+
+        <section id="contact-section" class="mt-5">
+            <h2>Contact Us</h2>
+            <p class="lead">Have a question or want to place a custom order? Fill out the form below!</p>
+            <form id="contact-form">
+                <div class="form-group">
+                    <label for="name">Your Name:</label>
+                    <input type="text" class="form-control" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Your Email:</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+          <label for="message">Message:</label>
+                    <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+                </div> <button type="submit" class="btn btn-primary">Send Message</button>
+                <div id="form-response" class="mt-3"></div>
+            </form>
+    </main>
+
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container text-center">
+            <p>&copy; 2025 Bakers Bliss. All rights reserved.</p>
+        </div>
+    </footer>
+
+<script>
+        let cart = {};
+
+        function updateCartBadge() {
+            const cartBadge = document.querySelector('.cart-badge');
+            let totalItems = 0;
+            for (const item in cart) {
+                totalItems += cart[item].quantity;
+            }
+            cartBadge.textContent = totalItems;
+            cartBadge.style.display = totalItems > 0 ? 'inline-block' : 'none';
+        }
+
+        function displayCart() {
+            const cartItemsList = document.getElementById('cart-items');
+            const totalPriceElement = document.getElementById('total-price');
+            let totalPrice = 0;
+            cartItemsList.innerHTML = '';
+
+            if (Object.keys(cart).length === 0) {
+                cartItemsList.innerHTML = '<li class="empty-cart">Your cart is empty</li>';
+                totalPriceElement.textContent = '0.00';
+                return;
+            }
+
+          for (const item in cart) {
+                const cartItem = cart[item];
+                const listItem = document.createElement('li');
+                listItem.className = 'cart-item';
+                listItem.innerHTML = `
+                    <span class="item-name">${cartItem.name} x <span id="qty-${cartItem.id}">${cartItem.quantity}</span></span>
+                    <span class="item-price">₹${(cartItem.price * cartItem.quantity).toFixed(2)}</span>
+                    <div class="quantity-controls">
+                        <button class="increase-qty" data-id="${cartItem.id}">+</button>
+                        <span>${cartItem.quantity}</span>
+                        <button class="decrease-qty" data-id="${cartItem.id}">-</button>
+                    </div>
+                    <button class="remove-item" data-id="${cartItem.id}"><i class="bi bi-x-circle"></i></button>
+                `;
+                cartItemsList.appendChild(listItem);
+                totalPrice += cartItem.price * cartItem.quantity;
+            }
+            totalPriceElement.textContent = totalPrice.toFixed(2);
+             updateCartBadge();
+        }
+
+        function addItemToCart(id, name, price) {
+            if (cart[id]) {
+                cart[id].quantity += 1;
+            } else {
+                cart[id] = { id, name, price, quantity: 1 };
+            }
+            displayCart();
+        }
+
+         function removeItemFromCart(id) {
+            delete cart[id];
+            displayCart();
+            updateCartBadge();
+        }
+
+        function increaseQuantity(id) {
+            if (cart[id]) {
+                cart[id].quantity += 1;
+                displayCart();
+            }
+        }
+
+        function decreaseQuantity(id) {
+            if (cart[id]) {
+                if (cart[id].quantity > 1) {
+                    cart[id].quantity -= 1;
+                    displayCart();
+                }
+                 else {
+                    removeItemFromCart(id);
+                }
+            }
+        }
+
+        document.addEventListener('click', (event) => {
+            if (event.target.classList.contains('add-to-cart')) {
+                const id = event.target.dataset.id;
+                const name = event.target.dataset.name;
+                const price = parseFloat(event.target.dataset.price);
+                addItemToCart(id, name, price);
+            }
+
+            if (event.target.classList.contains('remove-item')) {
+                const id = event.target.dataset.id;
+                removeItemFromCart(id);
+            }
+            if (event.target.classList.contains('increase-qty')) {
+                const id = event.target.dataset.id;
+                increaseQuantity(id);
+            }
+
+            if (event.target.classList.contains('decrease-qty')) {
+                const id = event.target.dataset.id;
+                decreaseQuantity(id);
+            }
+        });
+
+        displayCart();
+    </script>
+{/* WhatsApp icon */}
+      <a
+        href="https://wa.me/919372313944"
+        class="whatsapp_float"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <i class="fa fa-whatsapp whatsapp-icon"></i>
+      </a>
+</body>
+</html>
